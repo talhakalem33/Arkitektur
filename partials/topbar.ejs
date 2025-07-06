@@ -1,0 +1,38 @@
+<!-- Topbar Start -->
+    <div class="container-fluid bg-dark p-0 wow fadeIn" data-wow-delay="0.1s">
+        <div class="row gx-0 d-none d-lg-flex">
+            <div class="col-lg-7 px-5 text-start">
+                <div class="h-100 d-inline-flex align-items-center py-3 me-3">
+
+                    <% if (settings.phoneNumber && settings.phoneNumber.toString().trim() !== '') { %>
+                        <a class="text-body px-2"><i class="fa fa-phone-alt text-primary me-2"></i><%= settings.phoneNumber %></a>
+                    <% } %>
+
+                    <% if (settings.Email && settings.Email.trim() !== '') { %>
+                        <a class="text-body px-2"><i class="fa fa-envelope-open text-primary me-2"></i><%= settings.Email %></a>
+                    <% } %>
+
+                </div>
+            </div>
+            <div class="col-lg-5 px-5 text-end">
+                <div class="h-100 d-inline-flex align-items-center">
+                    <% if (settings.facebook && settings.facebook.trim() !== '') { %>
+                        <a class="btn btn-sm-square btn-outline-body me-1" href="<%= settings.facebook %>"><i class="fab fa-facebook-f"></i></a>
+                    <% } %>
+
+                    <% if (settings.twitter && settings.twitter.trim() !== '') { %>
+                        <a class="btn btn-sm-square btn-outline-body me-1" href="<%= settings.twitter %>"><i class="fa-brands fa-x-twitter"></i></a>
+                    <% } %>
+
+                    <% if (settings.instagram && settings.instagram.trim() !== '') { %>
+                        <a class="btn btn-sm-square btn-outline-body me-1" href="<%= settings.instagram %>"><i class="fa-brands fa-instagram"></i></a>
+                    <% } %>
+                    
+                    <% if (settings.youtube && settings.youtube.trim() !== '') { %>
+                        <a class="btn btn-sm-square btn-outline-body me-0" href="<%= settings.youtube %>"><i class="fa-brands fa-youtube"></i></a>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Topbar End -->

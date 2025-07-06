@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="utf-8">
+    <title><%= settings.brandName %></title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="Mainpage of <%= settings.brandName %>" name="description">
+
+    <!-- Favicon -->
+    <link href="/img/<%= settings.favicon %>" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Teko:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border position-relative text-primary" style="width: 6rem; height: 6rem;" role="status"></div>
+        <img class="position-absolute top-50 start-50 translate-middle" src="img/icons/icon-1.png" alt="Icon">
+    </div>
+    <!-- Spinner End -->
+
+
+    <%- include('../../partials/topbar', settings) %>
+    <%- include('../../partials/navbar', settings) %>
+
+
+    <!-- Appointment Start -->
+    <form method="post" action="/appointment">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row g-5">
+                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <h4 class="section-title">Randevu</h4>
+                        <h1 class="display-5 mb-4"><%= content.appoinmentTitle %></h1>
+                        <p class="mb-4"><%= content.appoinmentDescription %></p>
+                        <div class="row g-4">
+                            <% if (settings.phoneNumber && settings.phoneNumber.toString().trim() !== '') { %>
+                            <div class="col-12">
+                                <div class="d-flex">
+                                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-light" style="width: 65px; height: 65px;">
+                                        <i class="fa fa-2x fa-phone-alt text-primary"></i>
+                                    </div>
+                                    <div class="ms-4">
+                                        <p class="mb-2">Hemen Ara</p>
+                                        <h3 class="mb-0"><%= settings.phoneNumber %></h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <% } %>
+                            <% if (settings.Email && settings.Email.trim() !== '') { %>
+                            <div class="col-12">
+                                <div class="d-flex">
+                                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-light" style="width: 65px; height: 65px;">
+                                        <i class="fa fa-2x fa-envelope-open text-primary"></i>
+                                    </div>
+                                    <div class="ms-4">
+                                        <p class="mb-2">Email</p>
+                                        <h3 class="mb-0"><%= settings.Email %></h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <% } %>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="row g-3">
+                            <div class="col-12 col-sm-6">
+                                <input type="text" class="form-control" id="name" name="name" placeholder="İsim" style="height: 55px;">
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <input type="email" class="form-control"  id="mail" name="mail" placeholder="Email" style="height: 55px;">
+                            </div>
+                            <div class="col-12">
+                                <textarea class="form-control" rows="5" name="message" id="message" placeholder="Mesaj"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" type="submit">Randevu Al</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!-- Appointment End -->
+        
+
+    <%- include('../../partials/footer', settings) %>
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

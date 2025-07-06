@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Items</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="<%= item.itemTitle %>" name="keywords">
+    <meta content="Item page of <%= settings.brandName %>" name="description">
+
+    <!-- Favicon -->
+    <link href="/img/<%= settings.favicon %>" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="/css/style.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/css/lightbox.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+
+    <%- include('../../partials/topbar', settings) %> 
+    <%- include('../../partials/navbar', settings) %>
+
+
+    <div class="container pt-6 pb-6">
+        <div class="container">
+            <div class="row g-5 justify-content-center">
+
+                <h1 class="display-6 text-uppercase mb-3 animated slideInDown"><%= item.itemTitle %></h1>
+
+                <!-- Swiper Main Container -->
+                <div class="container">
+                    <!-- Main Swiper -->
+                    <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mainSwiper mb-3">
+                        <div class="swiper-wrapper">
+                            <!-- Front Image -->
+                            <div class="swiper-slide">
+                            <a href="/img/<%= item.itemFrontImage %>" data-lightbox="item-gallery">
+                                <img src="/img/<%= item.itemFrontImage %>" class="img-fluid" />
+                            </a>
+                            </div>
+
+                            <% if (item.itemImage && item.itemImage.length > 0) { %>
+                            <% item.itemImage.forEach(img => { %>
+                                <div class="swiper-slide">
+                                <a href="/img/<%= img %>" data-lightbox="item-gallery">
+                                    <img src="/img/<%= img %>" class="img-fluid" />
+                                </a>
+                                </div>
+                            <% }) %>
+                            <% } %>
+                        </div>
+                    </div>
+
+                    <!-- Thumbnail Swiper -->
+                    <div class="swiper thumbSwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="/img/<%= item.itemFrontImage %>" class="img-fluid" />
+                            </div>
+
+                            <% if (item.itemImage && item.itemImage.length > 0) { %>
+                                <% item.itemImage.forEach(img => { %>
+                                <div class="swiper-slide">
+                                    <img src="/img/<%= img %>" class="img-fluid" />
+                                </div>
+                                <% }) %>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+
+            </div><br>
+
+
+            <div class="row">
+                <div class="col-12 text-center">
+                    <% if (item.isRent) { %>
+                        <span class="badge bg-warning text-dark fs-5 py-2 px-3 rounded-pill me-2">Kiralık</span>
+                    <% } %>
+                    <% if (item.isSale) { %>
+                        <span class="badge bg-success fs-5 py-2 px-3 rounded-pill">Satılık</span>
+                    <% } %>
+                </div>
+            </div>
+
+            <br><br>
+
+            <div class="row g-5 justify-content-center">
+                <div class="col-lg-9 wow fadeIn" data-wow-delay="0.1s">
+                    <h5 style="color: #353839;"><%- item.itemDescription %></h5><br>
+                    <h4><a href="/contact">Daha fazla bilgi için</a></h4>
+                </div>
+            </div>
+
+        </div>      
+    </div>
+
+
+
+    <%- include('../../partials/footer', settings) %>
+    <%- include('../../partials/copyright') %>
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i
+            class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/lib/wow/wow.min.js"></script>
+    <script src="/lib/easing/easing.min.js"></script>
+    <script src="/lib/waypoints/waypoints.min.js"></script>
+    <script src="/lib/counterup/counterup.min.js"></script>
+    <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/js/lightbox.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+    <style>
+        .thumbSwiper .swiper-slide {
+            opacity: 0.4;
+            cursor: pointer;
+        }
+
+        .thumbSwiper .swiper-slide-thumb-active {
+            opacity: 1;
+            border: 2px solid #007bff;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+    </style>
+
+    <script>
+        var thumbSwiper = new Swiper(".thumbSwiper", {
+            spaceBetween: 10,
+            slidesPerView: 4,
+            freeMode: true,
+            watchSlidesProgress: true,
+            breakpoints: {
+            768: {
+                slidesPerView: 6,
+            },
+            },
+        });
+
+        var mainSwiper = new Swiper(".mainSwiper", {
+            spaceBetween: 10,
+            navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+            },
+            thumbs: {
+            swiper: thumbSwiper,
+            },
+        });
+    </script>
+</body>
+
+</html>
