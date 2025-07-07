@@ -3,8 +3,6 @@ const bcrypt = require("bcrypt");
 const sharp = require("sharp");
 const path = require("path");
 const fs = require("fs");
-const smtp = require("../helpers/sendmail");
-const emailConfig = require("../emailConfig");
 
 exports.adminIndexGet = async function(req, res) {
  
@@ -348,13 +346,11 @@ exports.settingsPut = async function(req, res) {
         settings.isFeaturesOn = !!req.body.isFeaturesOn;
         settings.isAppoinmentOn = !!req.body.isAppoinmentOn;
         settings.isTeamOn = !!req.body.isTeamOn;
-        settings.isNewsletterOn = !!req.body.isNewsletterOn;
         settings.isAboutMain = !!req.body.isAboutMain;
         settings.isItemsMain = !!req.body.isItemsMain;
         settings.isFeaturesMain = !!req.body.isFeaturesMain;
         settings.isAppoinmentMain = !!req.body.isAppoinmentMain;
         settings.isTeamMain = !!req.body.isTeamMain;
-        settings.isNewsletterMain = !!req.body.isNewsletterMain;
         settings.Email = req.body.Email;
         settings.phoneNumber = req.body.phoneNumber !== '' ? parseInt(req.body.phoneNumber) : null;
         settings.location = req.body.location && req.body.location.trim() !== '' ? req.body.location.trim() : null;
@@ -363,7 +359,6 @@ exports.settingsPut = async function(req, res) {
         settings.facebook  = req.body.facebook && req.body.facebook.trim() !== '' ? req.body.facebook.trim() : null;
         settings.youtube  = req.body.youtube && req.body.youtube.trim() !== '' ? req.body.youtube.trim() : null;
         settings.brandName = req.body.brandName;
-        settings.mailAppPassword = req.body.mailAppPassword;   
 
         if (req.files && req.files.favicon) {
             const inputPath = req.files.favicon[0].path;
@@ -400,73 +395,6 @@ exports.settingsPut = async function(req, res) {
         res.render("admin/500");
     }
 };
-
-exports.emailGet = async function(req, res) {
- 
-    try {
-
-        const user = await User.findOne({
-            where: { id: req.session.userId },
-        });
-
-        const emails = await Email.findAll();
-
-
-        res.render("admin/email", {
-            user: user,
-            emails: emails
-        });
-
-    } catch (err) {
-        console.log(err);
-    }
-}
-
-exports.emailPost = async function(req, res) {
- 
-    try {
-
-        const user = await User.findOne({
-            where: { id: req.session.userId },
-        });
-
-        const emails = await Email.findAll();
-
-        const mail = req.body.mail;
-        const subject = req.body.subject;
-
-        for (const e of emails) {
-            await smtp.sendMail({
-                from: emailConfig.email.from,
-                to: e.email,
-                subject: subject,
-                html: mail
-            });
-        }
-
-
-        res.render("admin", {
-            user: user,
-            emails: emails
-        });
-
-    } catch (err) {
-        console.log(err);
-    }
-}
-
-exports.emailDeleteGet = async function(req, res) {
-    const { Email } = require("../models");
-
-    try {
-        const email = decodeURIComponent(req.params.email);
-        await Email.destroy({ where: { email } });
-        res.redirect("/admin/email");
-    } catch (err) {
-        console.log(err);
-        res.redirect("/admin/500");
-    }
-}
 
 exports.appoinmentGet = async function(req, res) {
  

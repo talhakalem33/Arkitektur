@@ -29,13 +29,13 @@
                         <div class="card mb-4">
                             <div class="card-body">
 
-                                <a href="item/create" class="btn btn-primary">Create</a><br><br>
+                                <a href="item/create" class="btn btn-primary">Oluştur</a><br><br>
 
                                     <table class="table table-sm">
                                         <thead>
                                             <tr>
-                                                <th scope="col">Title</th>
-                                                <th scope="col">Description</th>
+                                                <th scope="col">Başlık</th>
+                                                <th scope="col">Açıklama</th>
                                                 <th scope="col"></th>
                                             </tr>
                                         </thead>
@@ -44,7 +44,7 @@
                                                 <tr>
                                                     <td><%= item.itemTitle %></td>
                                                     <td><%= item.itemPredescription %></td>
-                                                    <td><a class="btn btn-primary" href="item/detail/<%= item.id %>">Detail</a></td>
+                                                    <td><a class="btn btn-primary" href="item/detail/<%= item.id %>">Detaylar</a></td>
                                                 </tr>
                                             <% }) %>
                                         </tbody>

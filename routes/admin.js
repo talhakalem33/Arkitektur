@@ -32,10 +32,6 @@ router.get("/admin/appoinment/:id/delete", csrf, isAuth, adminController.appoinm
 router.get("/admin/appoinment/:id", csrf, isAuth, adminController.appoinmentDetailGet);
 router.get("/admin/appoinment", csrf, isAuth, adminController.appoinmentGet);
 
-router.get("/admin/email/delete/:email", isAuth, adminController.emailDeleteGet);
-router.post("/admin/email", csrf, isAuth, adminController.emailPost);
-router.get("/admin/email", csrf, isAuth, adminController.emailGet);
-
 router.post("/admin/settings",csrf, upload.fields([
     { name: "favicon", maxCount: 1 }
   ]), isAuth, adminController.settingsPut);

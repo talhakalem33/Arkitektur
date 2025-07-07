@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>WELDORK - Welding Website Template</title>
+    <title></title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -34,49 +34,61 @@
 
 <body>
 
-        <!-- Appoinment Start -->
-    <div class="container-fluid appoinment mt-6 mb-6 py-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container pt-5">
-            <div class="row gy-5 gx-0">
-                <div class="col-lg-6 pe-lg-5 wow fadeIn" data-wow-delay="0.3s">
-                    <h1 class="display-6 text-uppercase text-white mb-4">(TITLE)Lorem ipsum dolor sit amet.
-                    </h1>
-                    <p class="text-white mb-5 wow fadeIn" data-wow-delay="0.4s">(DESCRIPTION)Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tellus
+    <!-- Appointment Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row g-5">
+                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <h4 class="section-title">Randevu</h4>
+                        <h1 class="display-5 mb-4">(BAŞLIK)Lorem ipsum dolor sit amet.</h1>
+                        <p class="mb-4">(AÇIKLAMA)Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tellus
                         augue, iaculis id elit eget, ultrices pulvinar tortor.</p>
-                </div>
-                <div class="col-lg-6 mb-n5 wow fadeIn" data-wow-delay="0.7s">
-                    <div class="bg-white p-5">
-                        <h2 class="text-uppercase mb-4">Online Appoinment</h2>
-                        <div class="row g-3">
-                            <div class="col-sm-6">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control border-0 bg-light" id="name" placeholder="Your Name">
-                                    <label for="name">Your Name</label>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-floating">
-                                    <input type="email" class="form-control border-0 bg-light" id="mail" placeholder="Your Email">
-                                    <label for="mail">Your Email</label>
+                        <div class="row g-4">
+                            
+                            <div class="col-12">
+                                <div class="d-flex">
+                                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-light" style="width: 65px; height: 65px;">
+                                        <i class="fa fa-2x fa-phone-alt text-primary"></i>
+                                    </div>
+                                    <div class="ms-4">
+                                        <p class="mb-2">Hemen Ara</p>
+                                        <h3 class="mb-0">Telefon Numarası</h3>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-12">
-                                <div class="form-floating">
-                                    <textarea class="form-control border-0 bg-light" placeholder="Leave a message here" id="message"
-                                        style="height: 130px"></textarea>
-                                    <label for="message">Message</label>
+                                <div class="d-flex">
+                                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-light" style="width: 65px; height: 65px;">
+                                        <i class="fa fa-2x fa-envelope-open text-primary"></i>
+                                    </div>
+                                    <div class="ms-4">
+                                        <p class="mb-2">Email</p>
+                                        <h3 class="mb-0">Email Adresi</h3>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-12 text-center">
-                                <button class="btn btn-primary w-100 py-3" type="submit">Submit Now</button>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="row g-3">
+                            <div class="col-12 col-sm-6">
+                                <input type="text" class="form-control" id="name" name="name" placeholder="İsim" style="height: 55px;">
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <input type="email" class="form-control"  id="mail" name="mail" placeholder="Email" style="height: 55px;">
+                            </div>
+                            <div class="col-12">
+                                <textarea class="form-control" rows="5" name="message" id="message" placeholder="Mesaj"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" type="submit">Randevu Al</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Appoinment End -->
+    <!-- Appointment End -->
 
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>

@@ -24,7 +24,7 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">User Detail</h1>
+                        <h1 class="mt-4">Kullanıcı Detayı</h1>
                         <br>
                         <div class="card mb-4">
                             <div class="card-body">
@@ -38,15 +38,15 @@
                                     <input type="hidden" name="_csrf" value="<%= csrfToken %>">
 
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Change Password</label>
+                                        <label for="exampleInputEmail1">Şifreyi Değiştir</label>
                                         <input type="password" class="form-control" id="password" name="password" placeholder="password" >
                                     </div><br>
 
-                                    <button type="submit" class="btn btn-primary">Change Password</button><br><br>
+                                    <button type="submit" class="btn btn-primary">Şifreyi Değiştir</button><br><br>
 
                                 </form>
 
-                                <a href="<%= userDet.id %>/delete" class="btn btn-danger">Delete</a>
+                                <a href="<%= userDet.id %>/delete" class="btn btn-danger">Sil</a>
 
                             </div>
                         </div>
