@@ -53,7 +53,7 @@ exports.appointmentPost = async function(req, res) {
             email: email
         });
 
-        res.render("home/appoinment", {
+        res.render("home/appointment", {
             settings: settings,
             content: content
         });

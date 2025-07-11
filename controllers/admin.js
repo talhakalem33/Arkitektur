@@ -162,7 +162,6 @@ exports.contentPut = async function(req, res) {
         content.appoinmentDescription = req.body.appoinmentDescription;
         content.contactTitle = req.body.contactTitle;
         content.contactDescription = req.body.contactDescription;
-        content.newsletterDescription = req.body.newsletterDescription;
 
         if (req.files && req.files.carouselImage) {
             const inputPath = req.files.carouselImage[0].path;

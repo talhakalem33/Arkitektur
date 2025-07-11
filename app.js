@@ -46,5 +46,5 @@ app.use(homeRoutes);
 let PORT = process.env.PORT || 3000;
 
 app.listen(PORT, function() {
-    console.log('port ${PORT}');
+    console.log(`port ${PORT}`);
 });
