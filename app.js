@@ -1,5 +1,7 @@
 const express = require("express");
 const app = express();
+require("dotenv").config();
+const helmet = require("helmet");
 const path = require("path");
 const homeRoutes = require("./routes/home");
 const adminRoutes = require("./routes/admin");
@@ -11,13 +13,20 @@ var SequelizeStore = require("connect-session-sequelize")(session.Store);
 const seq = require("./data/db");
 const csurf = require("csurf");
 const methodOverride = require("method-override");
-require("dotenv").config();
 require("./startup/production")(app);
+const cspConfig = require("./startup/csp");
 
 const sessionStore = new SequelizeStore({
   db: seq
 });
 
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: cspConfig.directives,
+    },
+  })
+);
 app.use(express.json());
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: false }));
