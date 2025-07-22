@@ -1,7 +1,7 @@
 <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
         <a href="/" class="navbar-brand ms-4 ms-lg-0">
-            <h1 class="text-primary m-0"><img class="me-3" src="/img/icons/icon-1.png" alt="Icon"><%= settings.brandName %></h1>
+            <h1 class="text-primary m-0"><img class="me-3" loading="lazy" src="/img/icons/icon-1.png" alt="Icon"><%= settings.brandName %></h1>
         </a>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
@@ -11,7 +11,7 @@
 
                 <a href="/" class="nav-item nav-link">Anasayfa</a>
                 <% if (settings.isAboutOn) { %><a href="/about" class="nav-item nav-link">Hakkımızda</a><% } %>
-                <% if (settings.isItemsOn) { %><a href="/items" class="nav-item nav-link">Emlak</a><% } %>
+                <% if (settings.isItemsOn) { %><a href="/items" class="nav-item nav-link">Items</a><% } %>
                 <a href="/contact" class="nav-item nav-link">İletişim</a>
             </div>
             <% if (settings.isAppoinmentOn) { %><a href="/appointment" class="btn btn-primary py-2 px-4 d-none d-lg-block">Randevu</a><% } %>

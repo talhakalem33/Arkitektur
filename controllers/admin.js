@@ -1,4 +1,4 @@
-const {User, Settings, Content, Email, Appoinment, Item} = require("../models/index");
+const {User, Settings, Content,  Appoinment, Item} = require("../models/index");
 const bcrypt = require("bcrypt");
 const sharp = require("sharp");
 const path = require("path");

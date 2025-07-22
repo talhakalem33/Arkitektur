@@ -1,5 +1,5 @@
 const { Op } = require("sequelize");
-const {Settings, Content, Email, Appoinment, Item} = require("../models/index"); 
+const {Settings, Content, Appoinment, Item} = require("../models/index"); 
 
 exports.aboutGet = async function(req, res) {
  
@@ -47,10 +47,6 @@ exports.appointmentPost = async function(req, res) {
             name: name,
             email: email,
             message: message
-        });
-
-        await Email.create({ 
-            email: email
         });
 
         res.render("home/appointment", {
